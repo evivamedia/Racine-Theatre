@@ -42,10 +42,11 @@
 
 /*GENERAL STYLE*/
 body{
-	font-family: 'montserratregular';
+	font-family: 'montserratlight';
 	font-size: 15px;
 	line-height: 23px;
 	position: relative;
+	color: #686868;
 }
 
 .white-scheme, .white-scheme *{
