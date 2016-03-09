@@ -127,7 +127,10 @@ body{
 }
 
 
-
+.header #click-menu {
+    top: 23% !important;
+    background: transparent !important;
+}
 
 
 /**********************************************
