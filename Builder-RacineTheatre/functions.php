@@ -17,7 +17,7 @@ add_theme_support( 'builder-responsive' );
  * Enqueue scripts and styles
  */
 function enqeue_theme() {
-	
+
 	$bootstrap_version = '3.3.6';
 	$fontawesome_version = '4.5.0';
 
@@ -31,3 +31,12 @@ function enqeue_theme() {
 
 }
 add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
+
+
+/**
+ * Admin Enqueue scripts and styles
+ */      
+function load_admin_style() {
+	wp_register_style( 'admin_css', get_template_directory_uri() . '/style-admin.css', false, '1.0.0' );
+}
+add_action( 'admin_enqueue_scripts', 'load_admin_style' );
