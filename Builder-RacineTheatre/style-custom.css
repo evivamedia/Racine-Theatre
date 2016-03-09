@@ -99,11 +99,54 @@ body{
     position: absolute;
 }
 
+/* HEADER */
+
+.header .header-wrap-left.wpb_column.vc_column_container{
+	background: white;
+    padding: 15px 10px;
+}
+
+.header .header-wrap-right.wpb_column.vc_column_container{
+	background: #7a0f2d;
+    padding: 15px 0;
+    padding-left: 22px;
+}
+
+
+/*HEADER MENU*/
+.header .menu-menu-container .menu{
+	list-style: none;
+}
+
+.header .menu-menu-container .menu li{
+	float: left;
+}
+
+.header .menu-menu-container .menu li a{
+	color: white
+}
+
+
+
+
+
 /**********************************************
 **********************************************
 RESPONSIVE BREAKING POINT  767px
 **********************************************
 **********************************************/
+@media(min-width: 1159px){
+	.header .header-mobilemenu-wrapper{
+		display: none;
+	}
+}
+
+@media(max-width: 1159px){
+	.header .header-menu-wrapper{
+		display: none;
+	}
+}
+
 @media(max-width: 767px){
 	.topbar address {
 		margin-bottom: 10px !important;
@@ -117,5 +160,6 @@ RESPONSIVE BREAKING POINT  767px
 	.topbar *{
 		text-align: center;
 	}
+
 }
 
