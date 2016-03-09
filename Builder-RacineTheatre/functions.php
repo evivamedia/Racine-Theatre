@@ -60,6 +60,7 @@ add_filter('content_block_post_type','demomentsomtres_filter_content_block_init'
 
 if ( ! function_exists( 'it_builder_loaded' ) ) {
 	function it_builder_loaded() {
+		builder_register_module_style( 'widget-bar', 'Top Bar', 'topbar' );
 		builder_register_module_style( 'widget-bar', 'Header', 'header' );
 		builder_register_module_style( 'widget-bar', 'Navigation', 'navigation' );
 		builder_register_module_style( 'widget-bar', 'Sub Footer Widget', 'sub_footer_widget' );
