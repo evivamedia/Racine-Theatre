@@ -23,9 +23,8 @@ function enqeue_theme() {
 	$fontawesome_version = '4.5.0';
 
 	wp_enqueue_script( 'site-js', get_template_directory_uri() .'-'.$siteChild.'/js/site-script.js', array(), 1.0, true );
-	wp_enqueue_script( 'bootstrap-min-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/'.$bootstrap_version.'/js/bootstrap.min.js', array(), $bootstrap_version, true );
-	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/'.$bootstrap_version.'/css/bootstrap.min.css' );
-	wp_enqueue_style( 'bootstrap_more_icons', '//netdna.bootstrapcdn.com/font-awesome/'.$fontawesome_version.'/css/font-awesome.css' );
+
+	wp_enqueue_style( 'visualcomposer_css', ''.get_site_url().'/wp-content/plugins/js_composer/assets/css/js_composer.min.css' );
 	
 	wp_enqueue_style( 'theme_font', get_template_directory_uri() .'-'.$siteChild.'/style-font.css');
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-'.$siteChild.'/style-custom.css');
