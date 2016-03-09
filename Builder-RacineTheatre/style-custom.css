@@ -54,6 +54,10 @@ body{
 	background: white;
 }
 
+b{
+	font-weight: 800;
+}
+
 .white-scheme, .white-scheme *{
 	color: white !important; 
 }
@@ -113,6 +117,11 @@ body{
     padding-left: 22px;
 }
 
+.header-background-wrapper {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 
 /*HEADER MENU*/
 .header #mega-menu-wrap-max_mega_menu_1{
@@ -135,6 +144,19 @@ body{
     top: 23% !important;
     background: transparent !important;
 }
+
+/*CONTENT MODULE*/
+
+.entry-content{
+	margin-top: 0;
+}
+
+/*JS COMPOSER CUSTOM STYLE*/
+
+.vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg{
+	font-size: 18px;
+}
+
 
 /**********************************************
 **********************************************
