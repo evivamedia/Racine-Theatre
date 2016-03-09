@@ -39,11 +39,19 @@ add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
  */      
 function load_admin_style() {
 	$siteChild = 'RacineTheatre';
-	
+
 	wp_register_style( 'admin_css', get_template_directory_uri().'-'.$siteChild.'/style-admin.css', false, '1.0.0' );
 	wp_enqueue_style( 'admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+
+/*ENABLE VC in Custom post widget*/
+function demomentsomtres_filter_content_block_init() {
+	$content_block_public = true;
+	return $content_block_public;
+}
+add_filter('content_block_post_type','demomentsomtres_filter_content_block_init');
+
 
 
 /**
