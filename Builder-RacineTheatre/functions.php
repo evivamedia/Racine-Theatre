@@ -38,7 +38,10 @@ add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
  * Admin Enqueue scripts and styles
  */      
 function load_admin_style() {
-	wp_register_style( 'admin_css', get_template_directory_uri() . '/style-admin.css', false, '1.0.0' );
+	$siteChild = 'RacineTheatre';
+	
+	wp_register_style( 'admin_css', get_template_directory_uri().'-'.$siteChild.'/style-admin.css', false, '1.0.0' );
+	wp_enqueue_style( 'admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
 
