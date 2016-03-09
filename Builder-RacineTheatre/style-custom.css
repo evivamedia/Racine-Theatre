@@ -34,6 +34,10 @@
 	overflow: visible !important;
 }
 
+.builder-module-widget-bar .widget {
+    padding: 0;
+}
+
 
 /**REMOVE DIV **/
 .home .entry-header,.home .entry-footer{
@@ -52,3 +56,66 @@ body{
 .white-scheme, .white-scheme *{
 	color: white !important; 
 }
+
+
+/*TOP BAR*/
+
+.topbar-background-wrapper{
+	background: #edeae7;
+	margin:0;
+	padding: 7px 15px; 
+}
+
+.topbar address {
+	text-transform: uppercase;
+    font-size: 12px;
+    font-style: normal;
+    font-family: 'montserratregular';
+}
+
+.topbar #searchform{
+	float: right;
+	position: relative;
+}
+
+.topbar #searchform #s{
+	margin: 0;
+	background: white;
+	border: 1px #e4dcd5 solid;
+	font-size: 12px;
+	line-height: 20px;
+	min-width: 235px;
+	padding-left: 32px;
+}
+
+.topbar #searchform #searchsubmit{
+	background: url(images/topbar-search-icon.png) no-repeat;
+    width: 17px;
+    height: 17px;
+    border: 0;
+    font-size: 0;
+    top: 8px;
+    left: 10px;
+    position: absolute;
+}
+
+/**********************************************
+**********************************************
+RESPONSIVE BREAKING POINT  767px
+**********************************************
+**********************************************/
+@media(max-width: 767px){
+	.topbar address {
+		margin-bottom: 10px !important;
+	}
+	.topbar #searchform{
+		float: none;
+	}
+	.topbar #searchform #s{
+		width: 100%;
+	}
+	.topbar *{
+		text-align: center;
+	}
+}
+
