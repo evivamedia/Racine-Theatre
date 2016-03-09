@@ -1,0 +1,53 @@
+/**
+** CSS By Alipio Gabriel 
+** FOR Racine Theatre
+** Version 1.0
+**/
+
+/*MODULE CSS*/
+.builder-module-widget-bar-background-wrapper {
+	background: transparent;
+}
+
+.builder-module-background-wrapper, .builder-module-widget-bar-background-wrapper,.builder-module-widget-bar-background-wrapper,.builder-module-widget-bar-background-wrapper,.builder-module-sidebar{	/*MAKING TRANSPARENT WIDGET*/
+	background: transparent; 
+}
+
+.builder-module-element {
+    padding: 0 1.5em;
+}
+
+.builder-module-content .builder-module-element {
+    overflow: visible !important;
+}
+
+.builder-module-outer-wrapper{
+	overflow: visible;
+}
+
+.builder-container-outer-wrapper{
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+.builder-module-widget-bar,.builder-module-widget-bar .widget-wrapper{
+	overflow: visible !important;
+}
+
+
+/**REMOVE DIV **/
+.home .entry-header,.home .entry-footer{
+	display: none;
+}
+
+/*GENERAL STYLE*/
+body{
+	font-family: 'montserratregular';
+	font-size: 15px;
+	line-height: 23px;
+	position: relative;
+}
+
+.white-scheme, .white-scheme *{
+	color: white !important; 
+}
