@@ -18,15 +18,17 @@ add_theme_support( 'builder-responsive' );
  */
 function enqeue_theme() {
 
+	$siteChild = 'RacineTheatre';
 	$bootstrap_version = '3.3.6';
 	$fontawesome_version = '4.5.0';
 
+	wp_enqueue_script( 'site-js', get_template_directory_uri() .'-'.$siteChild.'/js/site-script.js', array(), 1.0, true );
 	wp_enqueue_script( 'bootstrap-min-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/'.$bootstrap_version.'/js/bootstrap.min.js', array(), $bootstrap_version, true );
 	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/'.$bootstrap_version.'/css/bootstrap.min.css' );
 	wp_enqueue_style( 'bootstrap_more_icons', '//netdna.bootstrapcdn.com/font-awesome/'.$fontawesome_version.'/css/font-awesome.css' );
 	
-	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-font.css');
-	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-custom.css');
+	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-'.$siteChild.'/style-font.css');
+	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-'.$siteChild.'/style-custom.css');
 
 }
 add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
@@ -53,4 +55,47 @@ if ( ! function_exists( 'it_builder_loaded' ) ) {
 		builder_register_module_style( 'widget-bar', 'Footer Widget', 'footer_widget' );
 	}
 	add_action( 'it_libraries_loaded', 'it_builder_loaded' );
+}
+
+/*FULLWIDTH*/
+function it_set_full_width_container( $width ) {
+	remove_filter( 'builder_get_container_width', 'it_set_full_width_container' );
+	
+	return '';
+}
+add_filter( 'builder_get_container_width', 'it_set_full_width_container' );
+
+function it_set_full_width_module( $fields ) {
+
+	global $it_original_module_width;
+	
+	$it_original_module_width = '';
+	
+	foreach ( (array) $fields['attributes']['style'] as $index => $value ) {
+		if ( preg_match( '/^(width:.+)/i', $value, $matches ) ) {
+			$it_original_module_width = $matches[1];
+			unset( $fields['attributes']['style'][$index] );
+		}
+		if ( preg_match( '/^overflow:/', $value ) ) {
+			unset( $fields['attributes']['style'][$index] );
+			$fields['attributes']['style'][] = 'overflow:visible;';
+		}
+	}
+	add_filter( 'builder_module_filter_inner_wrapper_attributes', 'it_constrain_full_width_module_inner_wrapper' );
+	
+	return $fields;
+}
+add_filter( 'builder_module_filter_outer_wrapper_attributes', 'it_set_full_width_module' );
+
+function it_constrain_full_width_module_inner_wrapper( $fields ) {
+	global $it_original_module_width;
+	
+	remove_filter( 'builder_module_filter_inner_wrapper_attributes', 'it_constrain_full_width_module_inner_wrapper' );
+	
+	$fields['attributes']['style'][] = $it_original_module_width;
+	$fields['attributes']['style'][] = 'margin:0 auto;';
+	
+	$it_original_module_width = ''; 
+	
+	return $fields;
 }
