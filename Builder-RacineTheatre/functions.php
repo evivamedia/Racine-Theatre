@@ -21,19 +21,12 @@ function enqeue_theme() {
 	$fontawesome_version = '4.5.0';
 
 	wp_enqueue_script( 'bootstrap-min-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/'.$bootstrap_version.'/js/bootstrap.min.js', array(), $bootstrap_version, true );
-
 	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/'.$bootstrap_version.'/css/bootstrap.min.css' );
-
 	wp_enqueue_style( 'bootstrap_more_icons', '//netdna.bootstrapcdn.com/font-awesome/'.$fontawesome_version.'/css/font-awesome.css' );
-
-	
-
-	wp_enqueue_style( 'montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,700');
-
 	
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-font.css');
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-custom.css');
-	
+
 
 }
 add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
