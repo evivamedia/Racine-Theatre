@@ -17,6 +17,7 @@ add_theme_support( 'builder-responsive' );
  * Enqueue scripts and styles
  */
 function enqeue_theme() {
+	
 	$bootstrap_version = '3.3.6';
 	$fontawesome_version = '4.5.0';
 
@@ -26,7 +27,7 @@ function enqeue_theme() {
 	
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-font.css');
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-custom.css');
-
+	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-admin.css');
 
 }
 add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
