@@ -27,7 +27,6 @@ function enqeue_theme() {
 	
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-font.css');
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-custom.css');
-	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-RacineTheatre/style-admin.css');
 
 }
 add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
@@ -40,3 +39,18 @@ function load_admin_style() {
 	wp_register_style( 'admin_css', get_template_directory_uri() . '/style-admin.css', false, '1.0.0' );
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+
+
+/**
+ * Widget Naming
+ */
+
+if ( ! function_exists( 'it_builder_loaded' ) ) {
+	function it_builder_loaded() {
+		builder_register_module_style( 'widget-bar', 'Header', 'header' );
+		builder_register_module_style( 'widget-bar', 'Navigation', 'navigation' );
+		builder_register_module_style( 'widget-bar', 'Sub Footer Widget', 'sub_footer_widget' );
+		builder_register_module_style( 'widget-bar', 'Footer Widget', 'footer_widget' );
+	}
+	add_action( 'it_libraries_loaded', 'it_builder_loaded' );
+}
