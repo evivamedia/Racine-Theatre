@@ -54,8 +54,20 @@ body{
 	background: white;
 }
 
-b{
+b,strong{
 	font-weight: 800;
+	font-family: 'montserratbold';
+}
+
+h1,h2,h3,h4{
+	font-weight: 300;
+	font-family: 'montserratlight';
+	color: black;
+	margin-top: 0;
+}
+
+.header h1, .header h2, .header h3, .header h4{
+	text-transform: uppercase;
 }
 
 .white-scheme, .white-scheme *{
@@ -115,6 +127,7 @@ b{
 	background: #7a0f2d;
     padding: 15px 0;
     padding-left: 22px;
+    min-height: 65px;
 }
 
 .header-background-wrapper {
@@ -147,15 +160,37 @@ b{
 }
 
 /*CONTENT MODULE*/
+.hentry img{
+	background: transparent;
+    border: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
+}
 
 .entry-content{
 	margin-top: 0;
 }
 
 /*JS COMPOSER CUSTOM STYLE*/
+.wpb_content_element{
+    margin-bottom: 0 !important;
+}
+
+.vc_col-has-fill>.vc_column-inner, .vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill+.vc_vc_row>.vc_row>.vc_vc_column>.vc_column_container>.vc_column-inner, .vc_row-has-fill+.vc_vc_row_inner>.vc_row>.vc_vc_column_inner>.vc_column_container>.vc_column-inner, .vc_row-has-fill>.vc_column_container>.vc_column-inner, .vc_row-has-fill>.vc_row>.vc_vc_column>.vc_column_container>.vc_column-inner, .vc_row-has-fill>.vc_vc_column_inner>.vc_column_container>.vc_column-inner {
+    padding-top: 0 !important;
+}
+
+#content .wpb_alert p:last-child, #content .wpb_text_column :last-child, #content .wpb_text_column p:last-child, .vc_message_box>p:last-child, .wpb_alert p:last-child, .wpb_text_column :last-child, .wpb_text_column p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/*JS COMPOSER  BUTTON */
 
 .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg{
 	font-size: 18px;
+	font-family: 'montserratregular';
 }
 
 .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg i{
@@ -172,11 +207,148 @@ b{
     padding: 17px 15px !important;
 }
 
+/**RESPONSIVE CSS BUTTON*/
+@media(max-width: 898px){
+	.vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline, .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline-custom{
+		font-size: 11px;
+	}
+}
+
+
+/*PRODUCTION SEARCH FORM*/
+
+#production_searchform .production_title{
+	width: 74%;
+    height: 40px;
+    border: 0;
+    padding: 0 20px;
+}
+
+#production_searchform input.production_submit {
+    background: url(images/production-search-icon.png) no-repeat 27%;
+    font-family: 'montserratregular';
+    border: 2px white solid;
+    color: white;
+    margin-left: 20px;
+    width: 23.5%;
+    padding: 9px 0;
+    text-transform: uppercase;
+    font-size: 15px;
+
+    -webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+#production_searchform input.production_submit:hover,#production_searchform input.production_submit:active{
+	border: 2px black solid;
+	background: url(images/production-search-icon.png) black no-repeat 27%;
+	cursor: pointer;
+}
+
+/**RESPONSIVE CSS SEARCH FORM*/
+@media(max-width: 843px){
+	#production_searchform .production_title, #production_searchform input.production_submit {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+
+/*PRODUCTION WRAPPER CSS*/
+.productions_row .production_wrapper{
+	background: #f7f7f7;
+	position: relative;
+}
+
+.productions_row .production_wrapper .p_content{
+	padding: 13px;
+    padding-bottom: 30px;
+}
+
+.productions_row .production_wrapper .p_image{
+	overflow: hidden;
+	height: 166px;
+}
+
+.productions_row .production_wrapper .p_image img{
+	margin-top: 0;
+	min-height: 166px;
+	width: 100%;
+}
+
+.productions_row .production_column .p_title h4{
+	font-size: 16px;
+	font-family: 'montserratsemi_bold';
+	text-transform: uppercase;
+	font-weight: 600;
+	text-align: center;
+	line-height: 22px;
+	color: #393939;
+	margin-bottom: 20px;
+}
+
+.productions_row .production_wrapper .p_excerpt{
+	font-size: 11px;
+	font-family: 'montserratlight';
+	line-height: 20px;
+	color: #393939;
+}
+
+
+.productions_row .production_wrapper .p_date{
+	font-size: 14px;
+	font-family: 'montserratsemi_bold';
+	line-height: 23px;
+	color: #393939;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 15px;
+}
+
+.p_info_meta {
+    margin-top: -25px;
+}
+
+.productions_row .production_wrapper .p_mi a,.productions_row .production_wrapper .p_mi{
+	font-size: 11px;
+	font-family: 'montserratsemi_bold';
+	line-height: 20px;
+	color: #393939;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.productions_row .production_wrapper .p_ticketbutton{
+	position: absolute;
+    margin-top: 11px;
+    left: 0;
+    width: 100%;
+}
+
+.productions_row .production_wrapper .p_ticketbutton a {
+    background: url(images/ticket-bg.png) no-repeat 31% -3px;
+	font-family: 'montserratsemi_bold';
+    width: 118px;
+    color: white;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+    margin: 0 auto;
+    font-size: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 
 
 /**********************************************
 **********************************************
 RESPONSIVE BREAKING POINT  767px
+IPAD: 991px;
 **********************************************
 **********************************************/
 @media(min-width: 1159px){
@@ -190,6 +362,21 @@ RESPONSIVE BREAKING POINT  767px
 		display: none;
 	}
 }
+
+@media(max-width: 991px){
+	.p_content_meta{
+		height: auto !important;
+	}
+
+	.productions_row .production_column {
+    	margin-bottom: 60px;
+	}
+
+	.p_info_meta{
+		margin-top: 40px;
+	}
+}
+
 
 @media(max-width: 767px){
 	.topbar address {
@@ -207,7 +394,9 @@ RESPONSIVE BREAKING POINT  767px
 	.header .wpb_single_image.vc_align_right {
     	text-align: center !important;
 	}
+	.vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline, .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline-custom{
+		font-size: 14px;
+	}
 }
 
-}
 
