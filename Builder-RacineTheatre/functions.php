@@ -20,8 +20,6 @@ $siteChild = 'RacineTheatre';
  */
 function enqeue_theme() {
 	$siteChild = 'RacineTheatre';
-	$bootstrap_version = '3.3.6';
-	$fontawesome_version = '4.5.0';
 
 	wp_enqueue_script( 'site-js', get_template_directory_uri() .'-'.$siteChild.'/js/site-script.js', array(), 1.0, true );
 	wp_enqueue_script( 'addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56e0dffe8d10da87', array(), 1.0, true );
