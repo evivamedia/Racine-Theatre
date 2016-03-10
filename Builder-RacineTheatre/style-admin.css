@@ -1,5 +1,9 @@
 /*ADMIN CSS*/
 
 .update-nag.bsf-update-nag,.updated.vc_license{
-	display: none !important;
+	display: none;
+}
+
+#poststuff #mymetabox_revslider_0{
+	display: none;
 }
