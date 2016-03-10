@@ -13,16 +13,20 @@ add_theme_support( 'builder-3.0' );
 add_theme_support( 'builder-responsive' );
 
 
+$siteChild = 'RacineTheatre';
+
 /**
  * Enqueue scripts and styles
  */
 function enqeue_theme() {
-
 	$siteChild = 'RacineTheatre';
 	$bootstrap_version = '3.3.6';
 	$fontawesome_version = '4.5.0';
 
 	wp_enqueue_script( 'site-js', get_template_directory_uri() .'-'.$siteChild.'/js/site-script.js', array(), 1.0, true );
+	wp_enqueue_script( 'addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56e0dffe8d10da87', array(), 1.0, true );
+
+
 
 	wp_enqueue_style( 'visualcomposer_css', ''.get_site_url().'/wp-content/plugins/js_composer/assets/css/js_composer.min.css' );
 	
@@ -38,7 +42,6 @@ add_action( 'wp_enqueue_scripts', 'enqeue_theme' );
  */      
 function load_admin_style() {
 	$siteChild = 'RacineTheatre';
-
 	wp_register_style( 'admin_css', get_template_directory_uri().'-'.$siteChild.'/style-admin.css', false, '1.0.0' );
 	wp_enqueue_style( 'admin_css' );
 }
@@ -110,3 +113,9 @@ function it_constrain_full_width_module_inner_wrapper( $fields ) {
 	
 	return $fields;
 }
+
+//ADD SHORTCODE [productionsearchform]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-searchform.php' );
+
+//ADD LIST oFSHORTCODE for PRODUCTION eg [upcomingproduction]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-productions.php' );
