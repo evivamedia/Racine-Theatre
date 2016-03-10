@@ -117,3 +117,6 @@ include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-searc
 
 //ADD LIST oFSHORTCODE for PRODUCTION eg [upcomingproduction]
 include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-productions.php' );
+
+//ADD LIST oF SHORTCODE for audition eg [nextaudition]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-auditions.php' );
