@@ -14,7 +14,7 @@
 }
 
 .builder-module-element {
-    padding: 0 1.5em;
+    padding: 0;
 }
 
 .builder-module-content .builder-module-element {
@@ -108,7 +108,7 @@ b{
 
 .header .header-wrap-left.wpb_column.vc_column_container{
 	background: white;
-    padding: 15px 20px;
+    padding: 15px 7%;
 }
 
 .header .header-wrap-right.wpb_column.vc_column_container{
@@ -141,7 +141,8 @@ b{
 }
 
 .header #click-menu {
-    top: 23% !important;
+	margin-top: 13px !important;
+    top: 0% !important;
     background: transparent !important;
 }
 
@@ -156,6 +157,21 @@ b{
 .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg{
 	font-size: 18px;
 }
+
+.vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg i{
+	font-size: 25px;
+}
+
+.vc_btn3.vc_btn3-color-black.vc_btn3-style-outline.active, .vc_btn3.vc_btn3-color-black.vc_btn3-style-outline:active, .vc_btn3.vc_btn3-color-black.vc_btn3-style-outline:focus, .vc_btn3.vc_btn3-color-black.vc_btn3-style-outline:hover {
+    color: #fff;
+    border-color: #7a0f2d !important;
+    background-color: #7a0f2d !important;
+}
+
+.vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline, .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline-custom {
+    padding: 17px 15px !important;
+}
+
 
 
 /**********************************************
@@ -188,6 +204,10 @@ RESPONSIVE BREAKING POINT  767px
 	.topbar *{
 		text-align: center;
 	}
+	.header .wpb_single_image.vc_align_right {
+    	text-align: center !important;
+	}
+}
 
 }
 
