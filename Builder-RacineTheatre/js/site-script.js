@@ -1,8 +1,3 @@
-////////////////////////////////////////////////
-////////////////////////////////////////////////
-//////////SAME HEIGHT COLUMN SCRIPT/////////////
-////////////////////////////////////////////////
-////////////////////////////////////////////////
 jQuery.fn.eqHeights = function(options) {
 
     var defaults = {  
@@ -55,18 +50,25 @@ jQuery.fn.eqHeights = function(options) {
     jQuery(elements).height(max_height);
 };
 
-// run on load so it gets the size:
-// can't have the same pattern for some reason or it scans the page and makes all the same height. Each row should be separate but it doesn't work that way.
+
 jQuery(window).load(function() {
 
-//$('[class*="eq-"]').eqHeights();
   jQuery('.productions_row [class*="p_"]').eqHeights({parentSelector:'.productions_row'});
-/*$('.foo2 [class*="eq-"]').eqHeights();*/
 
   }); 
 
-////////////////////////////////////////////////
-////////////////////////////////////////////////
-///////END SAME HEIGHT COLUMN SCRIPT////////////
-////////////////////////////////////////////////
-////////////////////////////////////////////////
+
+jQuery(document).ready(function(){
+
+        jQuery(window).scroll(function(e){ 
+          console.log('called');
+              if (jQuery(this).scrollTop() > 300 && jQuery('.header-background-wrapper').css('position') != 'fixed'){ 
+                jQuery('.header-background-wrapper').css({'display':'block','z-index':'1000','width' : '100%','position': 'fixed','opacity':'0','top':'0','left':'0','padding-left':'0'}).animate({opacity:1},300); 
+              }
+
+              if (jQuery(this).scrollTop() < 300 && jQuery('.header-background-wrapper').css('position') == 'fixed'){
+                jQuery('.header-background-wrapper').css({'position': 'relative','opacity':'0'}).animate({opacity:1},300); 
+              }
+        });
+
+});
