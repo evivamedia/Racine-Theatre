@@ -63,11 +63,39 @@ a{
 	color: #7a0f2d;
 }
 
+img {
+    margin: 0;
+}
+
+/*p{
+	margin-top: 0;
+	margin-bottom:0;
+}*/
+
+hr{
+    height: 0px;
+    border: 1px #878787 dotted;
+    margin: 10px 0;
+}
+
 h1,h2,h3,h4{
 	font-weight: 300;
 	font-family: 'montserratlight';
 	color: black;
 	margin-top: 0;
+}
+
+ul{
+	list-style: none;
+}
+
+ul li{
+	border-bottom: 1px #ccc dotted;
+	padding: 6px 0;
+}
+
+ul li a{
+	text-decoration: none;
 }
 
 .header h1, .header h2, .header h3, .header h4{
@@ -184,7 +212,8 @@ h1,h2,h3,h4{
 }
 
 .fullwidth-rightwrap{
-	max-width: 600px;
+    max-width: 594px;
+    padding: 0 18px;
 }
 
 /*JS COMPOSER CUSTOM STYLE*/
@@ -357,7 +386,77 @@ h1,h2,h3,h4{
 }
 
 
+/*AUDITION CSS*/
+.audition_list_wrap .a_button{
+	max-width: 165px !important;
+	margin: 10px 0;
+}
 
+
+/*SPOTLIGHT*/
+.spotlight_wrapper{
+	border-collapse: separate;
+}
+
+.spotlight{
+	background: #7A0F2D;
+}
+
+.spotlight .s_image{
+    max-width: 50%;
+    overflow: hidden;
+
+    vertical-align: top;
+}
+
+.spotlight .s_image img{
+	margin-top: 0px;
+	height: 100% !important;
+}
+
+.spotlight .s_content_wrapper{
+    width: 50%;
+    vertical-align: middle;
+}
+
+.spotlight .s_content {
+    padding: 20px;
+    font-size: 13px;
+    line-height: 19px;
+    color: white;
+}
+
+.spotlight .s_title{
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.spotlight .s_button{
+	margin-top: 15px;
+}
+
+.spotlight .s_button a{
+	text-transform: uppercase;
+}
+
+/*CLASS LIST*/
+ul.class-list{
+	margin-left: 0;
+}
+
+/*Table*/
+.table{
+	display: table;
+}
+
+.table-row{
+	display: table-row;
+}
+
+.table-cell{
+	display: table-cell;
+}
 
 /**********************************************
 **********************************************
@@ -395,6 +494,19 @@ IPAD: 991px;
 	.fullwidth-rightwrap p{
 		margin-top: 0;
 	}
+
+	.main-row .vc_col-sm-4 {
+	    width: 36.9999% !important;
+	}
+
+	.main-row .vc_col-sm-8 {
+    	width: 62.99999% !important;
+	}
+
+    .main-row .vc_row .vc_col-sm-4 {
+		width: 33.33333333% !important;
+	}
+
 }
 
 
@@ -425,6 +537,29 @@ IPAD: 991px;
 	.fullwidth-rightwrap{
 		max-width: 100%;
 	}
-}
 
+	/*Table*/
+	.table{
+		display: block;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.table-row{
+		display: block;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.table-cell{
+		display: block;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.spotlight .s_image{
+		text-align: center;
+	}
+
+}
 
