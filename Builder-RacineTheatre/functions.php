@@ -24,8 +24,6 @@ function enqeue_theme() {
 	wp_enqueue_script( 'site-js', get_template_directory_uri() .'-'.$siteChild.'/js/site-script.js', array(), 1.0, true );
 	wp_enqueue_script( 'addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56e0dffe8d10da87', array(), 1.0, true );
 
-
-
 	wp_enqueue_style( 'visualcomposer_css', ''.get_site_url().'/wp-content/plugins/js_composer/assets/css/js_composer.min.css' );
 	
 	wp_enqueue_style( 'theme_font', get_template_directory_uri() .'-'.$siteChild.'/style-font.css');
@@ -120,3 +118,9 @@ include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-produ
 
 //ADD LIST oF SHORTCODE for audition eg [nextaudition]
 include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-auditions.php' );
+
+//ADD LIST oF SHORTCODE for spotlight eg [spotlight]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-spotlight.php' );
+
+//ADD LIST oF SHORTCODE for classes eg [classes_list]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-class.php' );
