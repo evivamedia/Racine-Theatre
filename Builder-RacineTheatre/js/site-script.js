@@ -53,7 +53,7 @@ jQuery.fn.eqHeights = function(options) {
 
 jQuery(window).load(function() {
 
-  jQuery('.productions_row [class*="p_"]').eqHeights({parentSelector:'.productions_row'});
+  jQuery('.productions_row.sameheight [class*="p_"]').eqHeights({parentSelector:'.productions_row'});
 
   }); 
 
