@@ -11,7 +11,7 @@ function upcomingproduction_func($atts){
 	$target="_blank";
 
 	$html ='';
-	$html .='<section class="productions_row  vc_row wpb_row vc_row-fluid">';
+	$html .='<section class="productions_row sameheight vc_row wpb_row vc_row-fluid">';
 
 		foreach ($productions -> get($get_arg) as $production) {
 			$productionID = $production->ID;
@@ -52,5 +52,69 @@ function upcomingproduction_func($atts){
 }
 
 add_shortcode( 'upcomingproduction', 'upcomingproduction_func' );
+
+
+function pastproduction_func($atts){
+	$arg = shortcode_atts( array(
+        'limit' => ''
+    ), $atts );
+
+
+	$productions = new WPT_Productions();
+	$events = new WPT_Events();
+
+	$get_arg = array('end' => 'now' );
+
+	$target="_blank";
+	$endDate="";
+	$html ='';
+	$html .='<section class="past_production productions_row vc_row-o-equal-height vc_row-o-content-bottom vc_row-flex vc_row wpb_row vc_row-fluid">';
+
+		foreach ($productions -> get($get_arg) as $production) {
+			$productionID = $production->ID;
+			$thumbnailID = $production->thumbnail();
+			$posterURL = wp_get_attachment_url($thumbnailID);	
+			$postersmallURL = get_field('production_small_thumbnail',$productionID);
+			$mainticketURL = get_field('main_ticket_url',$productionID);
+			if(empty($mainticketURL)){$mainticketURL = $production->permalink(); $target="_self";}
+			$mainticketLABEL = get_field('main_ticket_label',$productionID);
+			if(empty($mainticketLABEL)){$mainticketLABEL = "Buy Ticket";}
+
+
+			$html .='<div class="production_column wpb_column vc_column_container vc_col-md-4 vc_col-sm-12 vc_col-xs-12" style="background:url('.$postersmallURL.');background-size:cover;">';
+				$html .='<div class="vc_column-inner">';
+					$html .='<div class="production_wrapper">';
+						$html .='<div class="p_content white-scheme">';
+							$html .='<div class="p_content_meta">';
+								$html .='<div class="p_title"><h4>'.$production->title().'</h4></div>';
+							$html .='</div>';
+							$html .='<div class="p_info_meta">';
+
+							$get_e_arg = array('production' => $production->ID);
+								foreach ($events -> get($get_e_arg) as $event) {
+									$endDate = $event->enddate();
+									if(!empty($endDate)){
+										$endDate = new DateTime($event->date());
+										$endDate = $endDate->format('F Y');
+										$html .='<div class="p_date">'.$endDate.'</div>';
+									}				
+								}
+
+								$html .='<div class="p_mi"><a href="'.$production->permalink().'">More Info</a></div>';
+							$html .='</div>';
+						$html .='</div>';
+					$html .='</div>';	
+				$html .='</div>';	
+			$html .='</div>';
+
+		}
+
+	$html .='</section>';
+
+	return $html;
+
+}
+
+add_shortcode( 'pastproduction', 'pastproduction_func' );
 
 
