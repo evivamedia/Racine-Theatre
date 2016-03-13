@@ -75,7 +75,7 @@ img {
 hr{
     height: 0px;
     border: 1px #878787 dotted;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 h1,h2,h3,h4{
@@ -327,7 +327,7 @@ ul li a{
 	text-transform: uppercase;
 	font-weight: 600;
 	text-align: center;
-	line-height: 22px;
+	line-height: 19px;
 	color: #393939;
 	margin-bottom: 20px;
 }
@@ -385,6 +385,29 @@ ul li a{
     font-weight: bold;
 }
 
+
+/*PAST PRODUCTION*/
+.past_production .production_column{
+	max-width: 307px;
+	border-radius: 100%;
+	margin: 0 10px;
+
+-webkit-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
+-moz-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
+box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
+}
+
+.past_production .vc_column-inner{
+	margin: 165px 0;
+}
+
+.past_production .production_wrapper{
+	background: transparent;
+}
+
+.past_production .p_info_meta{
+	margin-top: 0;
+}
 
 /*AUDITION CSS*/
 .audition_list_wrap .a_button{
