@@ -21,11 +21,13 @@ $siteChild = 'RacineTheatre';
 function enqeue_theme() {
 	$siteChild = 'RacineTheatre';
 
+	wp_enqueue_script( 'datepicker', get_template_directory_uri() .'-'.$siteChild.'/js/jquery-ui.min.js', array(), 1.11, true );
 	wp_enqueue_script( 'site-js', get_template_directory_uri() .'-'.$siteChild.'/js/site-script.js', array(), 1.0, true );
 	wp_enqueue_script( 'addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56e0dffe8d10da87', array(), 1.0, true );
-
+	wp_enqueue_style( 'bootstrap_more_icons', '//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css' );
 	wp_enqueue_style( 'visualcomposer_css', ''.get_site_url().'/wp-content/plugins/js_composer/assets/css/js_composer.min.css' );
-	
+
+
 	wp_enqueue_style( 'theme_font', get_template_directory_uri() .'-'.$siteChild.'/style-font.css');
 	wp_enqueue_style( 'theme_css', get_template_directory_uri() .'-'.$siteChild.'/style-custom.css');
 
@@ -110,6 +112,12 @@ function it_constrain_full_width_module_inner_wrapper( $fields ) {
 	return $fields;
 }
 
+function currentDate(){
+	return date('Y');
+}
+
+add_shortcode('currentdate', 'currentDate');
+
 //ADD SHORTCODE [productionsearchform]
 include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-searchform.php' );
 
@@ -124,3 +132,9 @@ include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-spotl
 
 //ADD LIST oF SHORTCODE for classes eg [classes_list]
 include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-class.php' );
+
+//ADD LIST oF SHORTCODE for socialicons eg [socialicons]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-socialicons.php' );
+
+//ADD LIST oF SHORTCODE for socialicons eg [events_table]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-events.php' );
