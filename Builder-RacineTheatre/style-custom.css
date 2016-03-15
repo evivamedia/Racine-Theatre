@@ -5,8 +5,13 @@
 **/
 
 /*MODULE CSS*/
+
 .builder-module-widget-bar-background-wrapper {
 	background: transparent;
+}
+
+.builder-container-background-wrapper {
+    overflow: hidden;
 }
 
 .builder-module-background-wrapper, .builder-module-widget-bar-background-wrapper,.builder-module-widget-bar-background-wrapper,.builder-module-widget-bar-background-wrapper,.builder-module-sidebar{	/*MAKING TRANSPARENT WIDGET*/
@@ -67,6 +72,10 @@ img {
     margin: 0;
 }
 
+.text-center{
+	text-align: center;
+}
+
 /*p{
 	margin-top: 0;
 	margin-bottom:0;
@@ -78,11 +87,20 @@ hr{
     margin: 20px 0;
 }
 
-h1,h2,h3,h4{
+h1,h2,h3,h4,h5,h6{
 	font-weight: 300;
 	font-family: 'montserratlight';
 	color: black;
 	margin-top: 0;
+}
+
+h5,h6{
+	text-transform: uppercase;
+}
+
+h6{
+	font-size: 14px;
+	font-style: normal;
 }
 
 ul{
@@ -96,6 +114,10 @@ ul li{
 
 ul li a{
 	text-decoration: none;
+}
+
+.clearboth{
+	clear: both;
 }
 
 .header h1, .header h2, .header h3, .header h4{
@@ -150,6 +172,14 @@ ul li a{
 
 /* HEADER */
 
+#builder-module-56dfb7773d181{
+	width: 100% !important;
+}
+
+div#builder-module-56dfb7773d181 {
+    max-width: 100%;
+}
+
 .header .header-wrap-left.wpb_column.vc_column_container{
 	background: white;
     padding: 15px 7%;
@@ -165,6 +195,7 @@ ul li a{
 .header-background-wrapper {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+    padding: 0 !important;
 }
 
 
@@ -216,6 +247,13 @@ ul li a{
     padding: 0 18px;
 }
 
+.entry-footer {
+    border-top: 0;
+    clear: both;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
 /*JS COMPOSER CUSTOM STYLE*/
 .wpb_content_element{
     margin-bottom: 0 !important;
@@ -250,6 +288,15 @@ ul li a{
     padding: 17px 15px !important;
 }
 
+.vc_btn3.vc_btn3-color-grey.vc_btn3-style-outline {
+    color: #393939 !important;
+}
+
+.vc_btn3.vc_btn3-color-grey.vc_btn3-style-outline {
+    border-color: #9f9f9f !important;
+    background-color: transparent;
+}
+
 /**RESPONSIVE CSS BUTTON*/
 @media(max-width: 898px){
 	.vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline, .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg.vc_btn3-style-outline-custom{
@@ -261,10 +308,19 @@ ul li a{
 /*PRODUCTION SEARCH FORM*/
 
 #production_searchform .production_title{
-	width: 74%;
+	width: 61%;
     height: 40px;
     border: 0;
     padding: 0 20px;
+}
+
+#production_searchform .production_date{
+    width: 13%;
+    height: 40px;
+    border: 0;
+    padding: 0 20px;
+    margin-right: -1px;
+    margin-left: 5px;
 }
 
 #production_searchform input.production_submit {
@@ -290,11 +346,32 @@ ul li a{
 	cursor: pointer;
 }
 
+table.ui-datepicker-calendar {
+    display: none !important;
+}
+div#ui-datepicker-div {
+    margin-top: -25px;
+    background: white;
+    padding: 20px;
+}
+
+a.ui-datepicker-prev.ui-corner-all {
+    margin-right: 10px;
+    cursor: pointer !important; 
+}
+
+select.ui-datepicker-month {
+    margin-right: 15px;
+}
+
 /**RESPONSIVE CSS SEARCH FORM*/
 @media(max-width: 843px){
 	#production_searchform .production_title, #production_searchform input.production_submit {
 		width: 100%;
 		margin-left: 0;
+	}
+	form#production_searchform {
+   	 margin: 5px 15px;
 	}
 }
 
@@ -370,7 +447,7 @@ ul li a{
     width: 100%;
 }
 
-.productions_row .production_wrapper .p_ticketbutton a {
+.productions_row .production_wrapper .p_ticketbutton a,.p_ticketbutton a{
     background: url(images/ticket-bg.png) no-repeat 31% -3px;
 	font-family: 'montserratsemi_bold';
     width: 118px;
@@ -415,6 +492,22 @@ box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
 	margin: 10px 0;
 }
 
+/*PRODUCTION*/
+
+.pro_cat-container {
+   margin-left: 0;
+}
+
+.pro_cat-container .prod_cat {
+	border: 0;
+	padding: 0;
+}
+
+.pro_cat-container .prod_cat a{
+	text-transform: uppercase;
+	font-size: 12px;
+	text-decoration: none;
+}
 
 /*SPOTLIGHT*/
 .spotlight_wrapper{
@@ -481,6 +574,259 @@ ul.class-list{
 	display: table-cell;
 }
 
+
+/*SOCIAL ICONS*/
+
+ul.social-list{
+	margin-left: 0;
+
+}
+
+ul.social-list li {
+    border: 0;
+    float: left;
+    margin: 0 12px;
+    font-size: 23px;
+}
+
+ul.social-list li a{
+	color: #9c9c9c;
+}
+
+ul.social-list li a:hover{
+	color: #7a0f2d;
+}
+
+/*CSS FOR single-wp_theatre_prod */
+
+body.single-wp_theatre_prod #builder-module-56dfb7773d1de{
+	max-width: 100%;
+}
+
+body.single-wp_theatre_prod .container{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+body.single-wp_theatre_prod  .builder-module-background-wrapper{
+	margin-bottom: 0;
+}
+section.search_section{
+	background: black;
+	padding: 5px 0;
+}
+
+section.prod_banner{
+	min-height: 350px;
+	width: 100%;
+	background-color: #383838;
+	text-align: center;
+	-webkit-box-shadow: inset 6px 3px 132px 59px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 6px 3px 132px 59px rgba(0,0,0,0.75);
+	box-shadow: inset 6px 3px 132px 59px rgba(0,0,0,0.75);
+}
+
+section.prod_banner .prod_dates {
+    border: 2px white solid;
+    display: inline-block;
+    padding: 7px 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    margin-top: 40px;
+	text-shadow: 0px 1px 4px black;
+}
+
+section.prod_banner .prod_title {
+    margin-top: 30px;
+}
+
+section.prod_banner .prod_title h1{
+    color: white;
+    font-size: 42px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-family: 'montserratsemi_bold';
+    text-shadow: 0px 1px 4px black;
+}
+
+section.prod_moreinfo {
+    background: rgba(0, 0, 0, 0.47);
+    margin-top: -83px;
+    position: relative;
+    padding: 20px 0;
+    min-height: 43px;
+}
+
+section.prod_container {
+    width: 100%;
+    background: #7A0F2D;
+}
+
+
+.ticket_button-wrapper .p_ticketbutton{
+	float: right;
+}
+
+.prod_left-container.wpb_column{
+    background: #7A0F2D;
+    padding-right: 20px;
+}
+
+
+.prod_poster img {
+    max-width: 230px;
+}
+
+.prod_left_box{
+	margin: 30px 0px;
+    border-bottom: 1px #560018 solid;
+}
+
+.prod_left_box h3{
+	text-transform: uppercase;
+}
+
+.prod_left_box ul{
+	margin-left: 0;
+}
+
+.prod_left_box ul li{
+	border: 0;
+}
+
+.prod_right-container{
+    background: #ECECEC;
+}
+
+.prod_right-wrap {
+    max-width: 600px;
+    padding: 25px 0;
+}
+
+.prod_title-container h2{
+	font-family: 'montserratlight';
+	text-transform: uppercase;
+	border-bottom: 1px #ccc dotted;
+}
+
+.prod_gallery{
+	margin-left: 0;
+}
+
+.prod_gallery li{
+	float: left;
+	border: 0;
+	margin-right: 20px;
+}
+
+.prod-container {
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    border: 1px #E0E0E0 solid;
+}
+
+/*TABLE EVENTS*/
+.events_table-container {
+    width:100%; /* Total width of visible columns + border widths */
+    overflow:hidden;
+}
+
+table.events_table{
+	background: transparent;
+}
+
+table.events_table th{
+	background: transparent;
+    min-width: 121px;
+}
+
+table#prod_e_table {
+}
+
+.table-e-button-nav {
+    border: 1px #ccc solid;
+    display: inline-block;
+    padding: 2px 13px;
+    min-width: 99px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 14px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.table-e-button-nav:hover {
+	text-decoration: none;
+	background: #7A0F2D;
+	border: 1px #7A0F2D solid;
+	color: white;
+}
+
+
+table.events_table .e_day{
+	text-transform: uppercase;
+	font-family: 'montserratsemi_bold';
+	letter-spacing: 4px;
+	font-size: 18px;
+}
+
+table.events_table .e_months{
+	font-size: 12px;
+}
+
+table.events_table .e_remark{
+	color: #ccc;
+	font-size: 12px;
+}
+
+.e_ticket a {
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #5aa1e3;
+    border: 1px #5aa1e3 solid;
+    padding: 6px 10px;
+    margin: 14px 0;
+    border-radius: 5px;
+    display: block;
+}
+
+.e_ticket a:hover{
+	border: 1px #7A0F2D solid;
+	background: #7A0F2D;
+	color: white;
+}
+
+
+
+
+/*FOOTER*/
+.footer_widget-background-wrapper {
+    border-top: #7a0f2d 8px solid;
+    padding: 60px 15px;
+    background: #F7F7F7;
+    margin-bottom: 0;
+}
+
+.footer_widget-background-wrapper .widget_nav_menu ul{
+	margin-left: 0;
+}
+
+.footer_widget-background-wrapper .widget_nav_menu li{
+	border: 0;
+}
+
+.footer_widget-background-wrapper .widget_nav_menu ul li a{
+	color: #808080;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+
+
 /**********************************************
 **********************************************
 RESPONSIVE BREAKING POINT  767px
@@ -513,6 +859,12 @@ IPAD: 991px;
 	}
 }
 
+@media(max-width: 979px){ /*WHERE ADDTHIS BREAK*/
+	.prod_share{
+		display: none;
+	}
+}
+
 @media(min-width: 768px){
 	.fullwidth-rightwrap p{
 		margin-top: 0;
@@ -529,6 +881,18 @@ IPAD: 991px;
     .main-row .vc_row .vc_col-sm-4 {
 		width: 33.33333333% !important;
 	}
+
+	.prod_left-wrap{
+	    float: right;
+	}
+
+	.prod_poster {
+	    margin-top: -175px;
+	    position: relative;
+	    z-index: 10;
+	    min-height: 200px;
+	}
+
 
 }
 
@@ -582,6 +946,23 @@ IPAD: 991px;
 
 	.spotlight .s_image{
 		text-align: center;
+	}
+
+	.prod_poster {
+		text-align: center;
+	}
+
+	.prod_gallery li {
+	    max-width: 26%;
+	}
+
+	.prod_left-container.wpb_column{
+		padding-right: 0;
+	}
+
+	.ticket_button-wrapper .p_ticketbutton {
+	    margin: 0 auto;
+	    float: none;
 	}
 
 }
