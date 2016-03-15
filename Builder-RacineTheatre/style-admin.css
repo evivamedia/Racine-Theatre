@@ -4,6 +4,6 @@
 	display: none;
 }
 
-#poststuff #mymetabox_revslider_0{
-	display: none;
+#poststuff #mymetabox_revslider_0,body.post-type-wp_theatre_prod #layout_meta_box{
+	display: none !important;
 }
