@@ -2,7 +2,8 @@
 
 function spotlight_func($atts){
 	$s_arg = shortcode_atts( array(
-        'limit' => ''
+        'limit' => '',
+        'link' =>''
     ), $atts );
 	$html ="";
 
@@ -28,10 +29,10 @@ function spotlight_func($atts){
 				$html .='<div class="spotlight table-row">';
 					$html .='<div class="s_image  table-cell"><img src="'.$feat_image.'" /></div>';
 					$html .='<div class="s_content_wrapper table-cell">';
-						$html .='<div class="s_content">';
-							$html .='<div class="s_title">'.get_the_title().'</div>';
-							$html .='<div class="s_excerpt">'.get_the_excerpt().'</div>';
-							$html .='<div class="vc_btn3-container vc_btn3-center s_button"><a class="vc_general  vc_btn3 vc_btn3-size-xs vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block vc_btn3-color-white" href="'.get_the_permalink().'" title="" target="_self">Click here to Volunteer</a></div>';
+						$html .='<div class="s_content white-scheme">';
+							$html .='<div class="s_title"><a href="'.get_the_permalink().'">'.get_the_title().'</a></div>';
+							$html .='<div class="s_excerpt">'.get_the_excerpt().' <a href="'.get_the_permalink().'">Read more</a></div>';
+							$html .='<div class="vc_btn3-container vc_btn3-center s_button"><a class="vc_general  vc_btn3 vc_btn3-size-xs vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block vc_btn3-color-white" href="'.$s_arg['link'].'" title="" target="_self">Click here to Volunteer</a></div>';
 						$html .='</div>';
 					$html .='</div>';
 				$html .='</div>';
