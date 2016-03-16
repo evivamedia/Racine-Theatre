@@ -14,7 +14,7 @@ function render_content() {
 						<?php $hideheader=get_field('header_option');?>
 						<?php if(!$hideheader): ?>
 							<div class="entry-header clearfix">
-									<h1 class="entry-title"><?php the_title(); ?></h1>
+									<h2 class="entry-title"><strong><?php the_title(); ?></strong></h2>
 							</div>
 						<?php endif;?>
 						
