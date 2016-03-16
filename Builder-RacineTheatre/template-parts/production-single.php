@@ -27,9 +27,8 @@
 	$images = get_field('photo_gallery');
 ?>
 
-
 <!--PRODUCTION SEARCH-->
-<section class="search_section">
+<section class="search_section dark">
 	<div class="container">
 		<div class="vc_row wpb_row vc_row-fluid">
 			<div class="wpb_column vc_column_container vc_col-sm-12">
@@ -130,6 +129,7 @@
 							<div class="prod-container event_table-wrapper">
 								<div class="prod_title-container"><h2><strong><?php echo $title; ?></strong> Events</h2></div>
 								<div class="prod_content-container">
+
 									<?php echo events_table_func(array('production' => get_the_ID())); ?>
 								</div>
 							</div>
