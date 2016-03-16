@@ -12,21 +12,21 @@ function productions_func($atts){
     }
     $category = $_GET['category'];
 
-    $get_arg = array('start' => 'now', 'limit'=> $limit,'category_name' =>$category );
+    $filter = array('start' => 'now','category_name' =>$category );
 
     if(empty($category) || $category == 'all'):
-		$get_arg = array('start' => 'now', 'limit'=> $limit );
+		$filter = array('start' => 'now', 'limit'=> $limit );
 	endif;
 
 	//SEARCH
 	if(!empty($arg['date']) && empty($arg['productionIDsearch'])):
-		$get_arg = array('start' => $arg['date'], 'limit'=> $limit );
+		$filter = array('start' => $arg['date'], 'limit'=> $limit );
 	endif;
 	if(!empty($arg['productionIDsearch'])):
-		$get_arg = array('post__in' => $arg['productionIDsearch']);
+		$filter = array('post__in' => $arg['productionIDsearch']);
 	endif;
 	if(!empty($arg['productionIDsearch']) && !empty($arg['date'])):
-		$get_arg = array('post__in' => $arg['productionIDsearch'], 'start' => $arg['date']);
+		$filter = array('post__in' => $arg['productionIDsearch'], 'start' => $arg['date']);
 	endif;
 	//END SEARCH
 
@@ -40,8 +40,8 @@ function productions_func($atts){
 	$html ='';
 
 	$html .='<section class="productions_row sameheight vc_row wpb_row vc_row-fluid">';
-
-		foreach ($productions -> get($get_arg) as $production) {
+	$count = 0;
+		foreach ($productions -> get($filter) as $production) {
 			$productionID = $production->ID;
 			$thumbnailID = $production->thumbnail();
 			$posterURL = wp_get_attachment_url($thumbnailID);	
@@ -51,8 +51,8 @@ function productions_func($atts){
 			$mainticketLABEL = get_field('main_ticket_label',$productionID);
 			if(empty($mainticketLABEL)){$mainticketLABEL = "Buy Ticket";}
 
-			$get_e_arg = array('production' => $production->ID);
-			foreach ($events -> get($get_e_arg) as $event) {
+			$event_filter = array('production' => $production->ID);
+			foreach ($events -> get($event_filter) as $event) {
 					$startDates[] = $event->startdate();			
 			}
 
@@ -104,13 +104,16 @@ function productions_func($atts){
 					$html .='</div>';	
 			$html .='</div>';
 		endif;
+		$count++;
 		}
 
 	$html .='</section>';
 
-	//print_r($production->get_events());
+	if($count==0):
+		$html="";
+	endif;
 	return $html;
-
+	$count=0;
 }
 
 add_shortcode( 'productions', 'productions_func' );
@@ -138,14 +141,14 @@ function upcomingproduction_func($atts){
     	$limit = -1;
     }
 
-	$get_arg = array('start' => 'now', 'limit'=> $limit );
+	$filter = array('start' => 'now', 'limit'=> $limit );
 	$productions = new WPT_Productions();
 	$target="_blank";
 
 	$html ='';
 	$html .='<section class="productions_row sameheight vc_row wpb_row vc_row-fluid">';
 
-		foreach ($productions -> get($get_arg) as $production) {
+		foreach ($productions -> get($filter) as $production) {
 			$productionID = $production->ID;
 			$thumbnailID = $production->thumbnail();
 			$posterURL = wp_get_attachment_url($thumbnailID);	
@@ -199,7 +202,7 @@ function pastproduction_func($atts){
 	$productions = new WPT_Productions();
 	$events = new WPT_Events();
 
-	$get_arg = array('end' => 'now','limit'=> $limit );
+	$filter = array('end' => 'now','limit'=> $limit );
 
 	$target="_blank";
 	$endDates = array();
@@ -207,7 +210,7 @@ function pastproduction_func($atts){
 	$html ='';
 	$html .='<section class="past_production productions_row vc_row-o-equal-height vc_row-o-content-bottom vc_row-flex vc_row wpb_row vc_row-fluid">';
 
-		foreach ($productions -> get($get_arg) as $production) {
+		foreach ($productions -> get($filter) as $production) {
 			$productionID = $production->ID;
 			$thumbnailID = $production->thumbnail();
 			$posterURL = wp_get_attachment_url($thumbnailID);	
@@ -216,13 +219,13 @@ function pastproduction_func($atts){
 			if(empty($mainticketURL)){$mainticketURL = $production->permalink(); $target="_self";}
 			$mainticketLABEL = get_field('main_ticket_label',$productionID);
 			if(empty($mainticketLABEL)){$mainticketLABEL = "Buy Ticket";}
-			$get_e_arg = array('production' => $production->ID);
 
-			foreach ($events -> get($get_e_arg) as $event) {
+			$event_filter = array('production' => $production->ID);
+			foreach ($events -> get($event_filter) as $event) {
 				$endDates[] = $event->enddate();			
 			}
 
-			if(prod_ended($production->ID)):
+			//if(prod_ended($production->ID)):
 				$html .='<div class="production_column wpb_column vc_column_container vc_col-md-4 vc_col-sm-12 vc_col-xs-12" style="background:url('.$postersmallURL.');background-size:cover;">';
 					$html .='<div class="vc_column-inner">';
 						$html .='<div class="production_wrapper">';
@@ -242,7 +245,7 @@ function pastproduction_func($atts){
 						$html .='</div>';	
 					$html .='</div>';	
 				$html .='</div>';
-			endif;
+			//endif;
 		}
 
 	$html .='</section>';
@@ -258,8 +261,8 @@ function prod_ended($productionID){
 	$eventDate = array();
 	$today = date('Ymd');
 
-	$get_e_arg = array('production' => $productionID);
-	foreach ($events -> get($get_e_arg) as $event) {
+	$event_filter = array('production' => $productionID);
+	foreach ($events -> get($event_filter) as $event) {
 		$endDate = new DateTime($event->enddate());
 		$eventDate[] = $endDate->format('Ymd');
 	}
@@ -277,10 +280,10 @@ function prod_ticketbutton($productionID){
 	$productionIDs[0] = $productionID;
 
 	$html ="";
-	$get_p_arg = array('post__in' => $productionIDs);
+	$production_filter = array('post__in' => $productionIDs);
 
 	if(!prod_ended($productionID)):
-		foreach ($productions -> get($get_p_arg) as $production) {
+		foreach ($productions -> get($production_filter) as $production) {
 			$mainticketURL = get_field('main_ticket_url',$productionID);
 			$target = "_BLANK";
 			if(!empty($mainticketURL)):
