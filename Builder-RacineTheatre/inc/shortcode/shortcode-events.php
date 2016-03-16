@@ -46,7 +46,12 @@ function events_table_func($atts){
 					$html.='<td>';
 						$html.='<div class="e_starttime">'.$startTIME->format('g:i A').'</div>';
 						$html.='<div class="e_remark">'.$event->remark().'</div>';
-						if(!empty($ticketURL) && !prod_ended($arg['production'])): $html.='<div class="e_ticket"><a href="'.$ticketURL.'" target="_BLANK">Buy Ticket</a></div>'; endif;
+						//if(!empty($ticketURL) && !prod_ended($arg['production'])): $html.='<div class="e_ticket"><a href="'.$ticketURL.'" class="wp_theatre_integrationtype_lightbox" target="_BLANK">Buy Ticket</a></div>'; endif;
+						if(!prod_ended($arg['production'])):
+							$html.='<div class="e_ticket">';
+								$html.=$event->tickets_html();
+							$html .='</div>';
+						endif;
 					$html.='</td>';	
 			}
 		$html.='</tr> </tbody>';
