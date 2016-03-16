@@ -2,6 +2,8 @@
 
 function render_content() {
 	$show_paging = false;
+	$date="";
+	$search="";
 	$date = $_GET['d'];
 	$search = $_GET['s'];
 ?>
@@ -9,8 +11,11 @@ function render_content() {
 		<div class="loop-header">
 			<h4 class="loop-title">
 				<?php
-					$title = sprintf( __( 'Search Results for "<em>%s %d</em>"', 'it-l10n-Builder' ), get_search_query() );
-					
+					if(empty($date)):
+						$title = '<h2 class="loop-title"><strong>Search Results</strong> for " <em>'.$search.'</em> "</h2>';
+					else:
+						$title = '<h2 class="loop-title">Search Results for " <em>'.$date.'</em> " Production</h2>';
+					endif;
 					if ( is_paged() )
 						printf( '%s &ndash; Page %d', $title, get_query_var( 'paged' ) );
 					else
@@ -21,9 +26,11 @@ function render_content() {
 		
 		<div class="loop-content">
 			<?php if(empty($search) && !empty($date)): ?>
-			<?php get_template_part( 'template-parts/production', 'searchDate' ); ?>
-			<?php else: ?>
-			<?php get_template_part( 'template-parts/production', 'search' ); ?>
+				<?php get_template_part( 'template-parts/production', 'searchDate' ); ?>
+			<?php endif; ?>
+			<?php if(!empty($search) && empty($date)): ?>
+				<?php get_template_part( 'template-parts/production', 'search' ); ?>
+				<?php //get_template_part( 'template-parts/template', 'search' ); ?>
 			<?php endif; ?>
 		</div>
 		
