@@ -2,7 +2,7 @@
 
 //Search Production
 
-function searchForm($atts){
+function prod_searchForm($atts){
 	$html ='';
 
 	$html .='<form role="search" method="get" id="production_searchform" action="'.esc_url( home_url( "/" ) ).'">';
@@ -12,6 +12,18 @@ function searchForm($atts){
 	$html .='</form>';
 	return $html;
 }
+add_shortcode( 'productionsearchform', 'prod_searchForm' );
 
-add_shortcode( 'productionsearchform', 'searchForm' );
 
+function searchForm_func($atts){
+	$html ='';
+	$html .='<form role="search" method="get" id="searchform" action="'.esc_url( home_url( "/" ) ).'">';
+		$html .='<div>';
+			$html .='<input type="text" value="" name="s" id="s" placeholder="What are you looking for?">';
+			$html .='<input type="submit" id="searchsubmit" value="Search">';
+		$html .='</div>';
+	$html .='</form>';
+	return $html;
+}
+
+add_shortcode( 'searchform', 'searchForm_func' );
