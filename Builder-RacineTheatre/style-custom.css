@@ -56,6 +56,10 @@ body{
 	line-height: 23px;
 	position: relative;
 	color: #686868;
+    background: #EDEAE7;
+}
+
+body.home{
 	background: white;
 }
 
@@ -92,6 +96,10 @@ h1,h2,h3,h4,h5,h6{
 	font-family: 'montserratlight';
 	color: black;
 	margin-top: 0;
+}
+
+h2{
+	text-transform: uppercase;
 }
 
 h5,h6{
@@ -223,6 +231,30 @@ div#builder-module-56dfb7773d181 {
 }
 
 /*CONTENT MODULE*/
+.builder-module-content {
+    background: white;
+}
+
+.loop-content {
+    padding: 25px;
+    padding-top: 0;
+}
+.home .loop-content {
+	padding: 0;
+}
+
+.entry-title {
+    border-bottom: 1px #ccc dotted;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;    
+    font-size: 22px;
+}
+
+.loop-header{
+	text-align: center;
+}
+
 .hentry img{
 	background: transparent;
     border: 0;
@@ -252,6 +284,14 @@ div#builder-module-56dfb7773d181 {
     clear: both;
     margin-bottom: 0;
     padding-top: 0;
+}
+
+.ft_image-container{
+    text-align: center;
+}
+
+.ft_image-container img{
+   /* width: 100%; */
 }
 
 /*JS COMPOSER CUSTOM STYLE*/
@@ -364,6 +404,30 @@ select.ui-datepicker-month {
     margin-right: 15px;
 }
 
+/*SEARCH RESULT*/
+.prod_result-container {
+    background: #ECECEC;
+    padding: 20px;
+    border: 1px #DEDEDE solid;
+}
+
+.search_result-container {
+    padding-top: 29px;
+    border-bottom: 1px #ccc dotted;
+}
+
+.search-result span a {
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #5aa1e3;
+    border: 1px #5aa1e3 solid;
+    padding: 6px 10px;
+    margin: 14px 0;
+    border-radius: 5px;
+    display: inline-block;
+}
+
 /**RESPONSIVE CSS SEARCH FORM*/
 @media(max-width: 843px){
 	#production_searchform .production_title, #production_searchform input.production_submit {
@@ -380,6 +444,10 @@ select.ui-datepicker-month {
 .productions_row .production_wrapper{
 	background: #f7f7f7;
 	position: relative;
+}
+
+.productions_row .production_column{
+	margin-bottom: 50px;
 }
 
 .productions_row .production_wrapper .p_content{
@@ -514,7 +582,7 @@ box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
 	border-collapse: separate;
 }
 
-.spotlight{
+.home .spotlight{
 	background: #7A0F2D;
 }
 
@@ -542,10 +610,13 @@ box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
     color: white;
 }
 
-.spotlight .s_title{
+.spotlight .s_title a{
     text-transform: uppercase;
     font-size: 17px;
     margin-bottom: 9px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .spotlight .s_button{
@@ -554,6 +625,11 @@ box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
 
 .spotlight .s_button a{
 	text-transform: uppercase;
+}
+
+.loop-content .spotlight {
+    max-width: 500px;
+    margin: 40px auto;
 }
 
 /*CLASS LIST*/
@@ -599,8 +675,14 @@ ul.social-list li a:hover{
 
 /*CSS FOR single-wp_theatre_prod */
 
+
 body.single-wp_theatre_prod #builder-module-56dfb7773d1de{
 	max-width: 100%;
+}
+
+
+body.single-wp_theatre_prod .loop-content {
+    padding: 0;
 }
 
 body.single-wp_theatre_prod .container{
@@ -611,9 +693,24 @@ body.single-wp_theatre_prod .container{
 body.single-wp_theatre_prod  .builder-module-background-wrapper{
 	margin-bottom: 0;
 }
-section.search_section{
+
+section.search_section.dark{
 	background: black;
 	padding: 5px 0;
+}
+
+.light input[type=text]{
+	background: #F3F3F3 !important;
+	border: 1px #EAEAEA solid !important;
+}
+
+.light #production_searchform input.production_submit{
+	 border: 2px #7A0F2D solid;
+    color: #7A0F2D;
+}
+
+.light #production_searchform input.production_submit:hover{
+	color: white;
 }
 
 section.prod_banner{
@@ -794,6 +891,11 @@ table.events_table .e_remark{
     display: block;
 }
 
+.wp_theatre_event_prices {
+	font-size: 10px;
+    line-height: 10px;
+}
+
 .e_ticket a:hover{
 	border: 1px #7A0F2D solid;
 	background: #7A0F2D;
@@ -801,6 +903,61 @@ table.events_table .e_remark{
 }
 
 
+/*CALENDAR*/
+.wpt_calendar.navigate .wpt_month.active {
+    width: 100% !important;
+}
+
+.wpt_calendar .wpt_month tfoot tr .next {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.wpt_calendar .wpt_month tfoot tr .prev {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.wpt_calendar .wpt_month tr td {
+    text-align: center;
+    max-width: 22px !important;
+}
+
+.cal-prod_title,.cal-prod_starttime{
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 16px;
+}
+
+.cal-prod_moreinfo a{
+	text-decoration: none;
+	font-size: 9px;
+	margin: -10px;
+}
+
+/*AUDITION*/
+
+.archive .loop-content .type-audition{
+    background: #FFF;
+    padding: 17px;
+    max-width: 400px;
+    margin: 30px auto;
+    text-align: center;
+    border: 1px #ccc dotted;
+}
+
+.archive .loop-content .type-audition .a_button{
+    margin-top: 10px;
+}
+
+.archive .loop-content .entry-title{
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.archive .loop-title {
+    margin-top: 15px;
+}
 
 
 /*FOOTER*/
