@@ -138,3 +138,6 @@ include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-socia
 
 //ADD LIST oF SHORTCODE for socialicons eg [events_table]
 include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-events.php' );
+
+//ADD LIST oF SHORTCODE for calendar eg [prod_calendar]
+include( get_template_directory().'-'.$siteChild.'/inc/shortcode/shortcode-calendar.php' );
