@@ -14,7 +14,7 @@ function render_content() {
 					if(empty($date)):
 						$title = '<h2 class="loop-title"><strong>Search Results</strong> for " <em>'.$search.'</em> "</h2>';
 					else:
-						$title = '<h2 class="loop-title">Search Results for " <em>'.$date.'</em> " Production</h2>';
+						$title = '<h2 class="loop-title">Search Results for " <em> '.$search.' '.$date.'</em> " Production</h2>';
 					endif;
 					if ( is_paged() )
 						printf( '%s &ndash; Page %d', $title, get_query_var( 'paged' ) );
@@ -27,10 +27,8 @@ function render_content() {
 		<div class="loop-content">
 			<?php if(empty($search) && !empty($date)): ?>
 				<?php get_template_part( 'template-parts/production', 'searchDate' ); ?>
-			<?php endif; ?>
-			<?php if(!empty($search) && empty($date)): ?>
+			<?php else: ?>
 				<?php get_template_part( 'template-parts/production', 'search' ); ?>
-				<?php //get_template_part( 'template-parts/template', 'search' ); ?>
 			<?php endif; ?>
 		</div>
 		
