@@ -10,8 +10,12 @@ function productions_func($atts){
     if (empty($limit)) {
     	$limit = -1;
     }
-    $category = $_GET['category'];
 
+    //Search by Month
+    $search_startDate = date('Y-m-d', strtotime($arg['date']));
+	$search_endDate = date('Y-m-d', strtotime($arg['date'].' + 1 month'));
+
+    $category = $_GET['category'];
     $filter = array('start' => 'now','category_name' =>$category );
 
     if(empty($category) || $category == 'all'):
@@ -20,13 +24,13 @@ function productions_func($atts){
 
 	//SEARCH
 	if(!empty($arg['date']) && empty($arg['productionIDsearch'])):
-		$filter = array('start' => $arg['date'], 'limit'=> $limit );
+		$filter = array('start' =>$search_startDate,'end' =>$search_endDate, 'limit'=> $limit );
 	endif;
 	if(!empty($arg['productionIDsearch'])):
 		$filter = array('post__in' => $arg['productionIDsearch']);
 	endif;
 	if(!empty($arg['productionIDsearch']) && !empty($arg['date'])):
-		$filter = array('post__in' => $arg['productionIDsearch'], 'start' => $arg['date']);
+		$filter = array('post__in' => $arg['productionIDsearch'], 'start' =>$search_startDate,'end' =>$search_endDate);
 	endif;
 	//END SEARCH
 
@@ -55,14 +59,6 @@ function productions_func($atts){
 			foreach ($events -> get($event_filter) as $event) {
 					$startDates[] = $event->startdate();			
 			}
-
-		if(!empty($arg['date'])):
-			$startDate = new DateTime(end($startDates));
-			$startDate = $startDate->format('mY');
-			$dateSearch = new DateTime($arg['date']);
-			$dateSearch = $dateSearch->format('mY');
-
-			if($startDate <= $dateSearch ):	
 				$html .='<div class="production_column wpb_column vc_column_container vc_col-md-3 vc_col-sm-6 vc_col-xs-12">';
 					$html .='<div class="vc_column-inner">';
 						$html .='<div class="production_wrapper">';
@@ -82,28 +78,6 @@ function productions_func($atts){
 						$html .='</div>';	
 					$html .='</div>';	
 				$html .='</div>';
-			endif;
-		else:
-			$html .='<div class="production_column wpb_column vc_column_container vc_col-md-3 vc_col-sm-6 vc_col-xs-12">';
-					$html .='<div class="vc_column-inner">';
-						$html .='<div class="production_wrapper">';
-							$html .='<div class="p_image"><img src="'.$postersmallURL.'" /></div>';
-							$html .='<div class="p_content">';
-								$html .='<div class="p_content_meta">';
-									$html .='<div class="p_title"><h4>'.$production->title().'</h4></div>';
-									$html .='<div class="p_excerpt">'.$production->excerpt().'</div>';
-								$html .='</div>';
-								$html .='<div class="p_info_meta">';
-									$html .='<div class="p_date">'.$production->dates().'</div>';
-									$html .='<div class="p_mi"><a href="'.$production->permalink().'">More Info</a></div>';
-									//$html .='<div class="p_ticketbutton"><a href="'.$mainticketURL.'" target="'.$target.'">'.$mainticketLABEL.'</a></div>';
-									$html .= prod_ticketbutton($productionID);
-								$html .='</div>';
-							$html .='</div>';
-						$html .='</div>';	
-					$html .='</div>';	
-			$html .='</div>';
-		endif;
 		$count++;
 		}
 
