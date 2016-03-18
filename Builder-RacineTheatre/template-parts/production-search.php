@@ -8,7 +8,7 @@
 					<?php
 						$postID=array();
 						$postID[0] = get_the_ID();
-						$output = productions_func(array('productionIDsearch' => $postID)); 
+						$output = productions_func(array('productionIDsearch' => $postID,'type'=>'search')); 
 					?>
 
 					<?php if(!empty($output)): ?>
@@ -22,7 +22,7 @@
 					<?php
 						$postID=array();
 						$postID[0] = get_the_ID();
-						$output = productions_func(array('productionIDsearch' => $postID,'date' => $date)); 
+						$output = productions_func(array('productionIDsearch' => $postID,'date' => $date,'type'=>'search')); 
 					?>	
 
 					<?php if(!empty($output)): ?>

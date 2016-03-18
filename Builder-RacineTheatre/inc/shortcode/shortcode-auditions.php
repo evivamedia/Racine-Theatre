@@ -13,10 +13,10 @@ function auditionlist_func($atts){
 
 	if (empty($type)) {
 		$type = '<=';
-		$header = 'NEXT AUDITIONS';
+		$header = 'PRESENT AUDITIONS';
 	} elseif($type=='next'){
 		$type = '<=';
-		$header = 'NEXT AUDITIONS';
+		$header = 'PRESENT AUDITIONS';
 	} elseif($type=='future'){
 		$type = '>';
 		$header = 'FUTURE AUDITIONS';
@@ -37,7 +37,9 @@ function auditionlist_func($atts){
 					'value'		=> date('Ymd'),
 					'compare'	=> $type
 				)
-			)
+			),
+			'order'=>'ASC',
+        	'paged' =>$paged
 		);
 
 		$query = new WP_Query( $args );
@@ -60,13 +62,14 @@ function auditionlist_func($atts){
 					$html .='<div class="vc_btn3-container vc_btn3-center a_button"><a class="vc_general  vc_btn3 vc_btn3-size-xs vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block vc_btn3-icon-left vc_btn3-color-black" href="'.get_the_permalink().'" title="" target="_self"><i class="vc_btn3-icon fa fa-plus"></i> AUDITION DETAILS</a></div>';
 				$html .='</div>';
 			endwhile; 
-		$html .='</div>';
 		else :
-			$html .="No schedule audition";
+			$html .="No available audition";
 		endif;
-		 wp_reset_query();	 // Restore global post data stomped by the_post(). 
-
+		
+		wp_reset_query();	 // Restore global post data stomped by the_post(). 
+		$html .='</div>';
 		 return $html;
+
 }
 
 add_shortcode( 'auditionlist', 'auditionlist_func' );

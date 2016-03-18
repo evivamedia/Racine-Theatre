@@ -2,7 +2,7 @@
 <?php 
 	$date = $_GET['d'];
 	$dateSearch = $date;
-	$output = productions_func(array('date' => $dateSearch));
+	$output = productions_func(array('date' => $dateSearch,'type'=>'search'));
 ?>
 
 <?php if($output !=""): ?>

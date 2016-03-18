@@ -273,6 +273,10 @@ div#builder-module-56dfb7773d181 {
     padding-right: 20px;
 }
 
+.fullwidth-leftwrap h1{
+    text-transform: uppercase;
+}
+
 .fullwidth-rightwrap{
     max-width: 594px;
     padding: 0 18px;
@@ -305,6 +309,13 @@ div#builder-module-56dfb7773d181 {
 
 #content .wpb_alert p:last-child, #content .wpb_text_column :last-child, #content .wpb_text_column p:last-child, .vc_message_box>p:last-child, .wpb_alert p:last-child, .wpb_text_column :last-child, .wpb_text_column p:last-child {
     margin-bottom: 0 !important;
+}
+
+/*TIMELINE*/
+h3.ult-timeline-title.ult-responsive {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
 }
 
 /*JS COMPOSER  BUTTON */
