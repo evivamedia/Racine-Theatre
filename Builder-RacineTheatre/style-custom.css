@@ -1014,9 +1014,10 @@ input.wpcf7-form-control.wpcf7-submit:hover {
 	border: 0;
 }
 
-.footer_widget-background-wrapper .widget_nav_menu ul li a{
+.footer_widget-background-wrapper .widget_nav_menu ul li a, .footer_widget-background-wrapper a{
 	color: #808080;
 	text-transform: uppercase;
+    text-decoration: none;
 	font-size: 14px;
 }
 
