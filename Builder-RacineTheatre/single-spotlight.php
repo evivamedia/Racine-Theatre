@@ -23,7 +23,7 @@ function render_content() {
 						<div class="entry-content clearfix">
 							<?php the_content(); ?>
 							<hr>
-							<div class="vc_btn3-container vc_btn3-center s_button"><a class="vc_general  vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block vc_btn3-color-black" href="http://dev.evivamedia.com/racinetheatre/spotlight/first-name-last-name/" title="" target="_self">Click here to Volunteer</a></div>
+							<div class="vc_btn3-container vc_btn3-center s_button"><a class="vc_general  vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block vc_btn3-color-black" href="<?php echo get_site_url(); ?>/contact/" title="" target="_self">Click here to Volunteer</a></div>
 						</div>
 						
 					</div>
