@@ -88,13 +88,15 @@
 							<div class="clearboth"></div>
 
 							<?php if(!prod_ended(get_the_ID()) && !empty($prod_ticketURL)): ?>
-							<div class="prod_buyticket text-center"><a href="<?php echo $prod_ticketURL; ?>" class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block  vc_btn3-color-white"> BUY TICKET</a></div>
+								<div class="prod_buyticket text-center"><a href="<?php echo $prod_ticketURL; ?>" class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block  vc_btn3-color-white"> BUY TICKET</a></div>
 							<?php endif;?>
 
-							<div class="prod_left_box prod_ticket-info white-scheme">
-								<h3>Tickets</h3>
-								<?php echo $prod_ticketINFO; ?>
-							</div>
+							<?php if(!empty($prod_ticketINFO)): ?>
+								<div class="prod_left_box prod_ticket-info white-scheme">
+									<h3>Tickets</h3>
+									<?php echo $prod_ticketINFO; ?>
+								</div>
+							<?php endif; ?>
 
 							<div class="prod_left_box prod_category white-scheme">
 								<h3>Categories</h3>
