@@ -11,10 +11,11 @@
 	$event = new WPT_Event();
 
 	$title = $production->title();
+	$content = $production->content();
 	$dates = $production->dates();
 	if(empty($dates)){$dates = event_startDate(get_the_ID());}
 	$bannerURL = get_field('production_banner'); 
-	$prod_ticketURL = get_field('main_ticket_url'); 
+	$shows_ticketURL = get_field('main_ticket_url'); 
 	$mainticketLABEL = get_field('main_ticket_label');
 	if(empty($mainticketLABEL)){$mainticketLABEL = "Buy Ticket";}
 	$thumbnailID = $production->thumbnail();
@@ -67,7 +68,11 @@
 					<div class="wpb_wrapper">
 							<div class="ticket_button-wrapper">
 									<!--<div class="prod_ticketbutton"><a href="<?php echo $main_ticket_url; ?>" target="_BLANK"><?php echo $mainticketLABEL; ?></a></div>-->
-									<?php echo prod_ticketbutton(get_the_ID()); ?>
+									<?php if(!prod_ended(get_the_ID()) && !empty($shows_ticketURL)): ?>
+										<!--<div class="p_ticketbutton">
+											<a href="<?php echo $shows_ticketURL; ?>">Buy Tickets</a>
+										</div>-->
+									<?php endif;?>
 							</div>
 					</div>
 				</div>
@@ -87,13 +92,17 @@
 							<div class="prod_poster"><img src="<?php echo $posterURL; ?>"></div>
 							<div class="clearboth"></div>
 
-							<?php if(!prod_ended(get_the_ID()) && !empty($prod_ticketURL)): ?>
-								<div class="prod_buyticket text-center"><a href="<?php echo $prod_ticketURL; ?>" class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block  vc_btn3-color-white"> BUY TICKET</a></div>
+							<?php if(!prod_ended(get_the_ID()) && !empty($shows_ticketURL)): ?>
+								<div class="prod_buyticket text-center">
+									<a href="<?php echo $shows_ticketURL; ?>" class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-outline vc_btn3-block  vc_btn3-color-white">
+										<?php echo $mainticketLABEL ?>
+									</a>
+								</div>
 							<?php endif;?>
 
 							<?php if(!empty($prod_ticketINFO)): ?>
 								<div class="prod_left_box prod_ticket-info white-scheme">
-									<h3>Tickets</h3>
+									<h3>Tickets Information</h3>
 									<?php echo $prod_ticketINFO; ?>
 								</div>
 							<?php endif; ?>
@@ -135,6 +144,15 @@
 									<?php echo events_table_func(array('production' => get_the_ID())); ?>
 								</div>
 							</div>
+
+							<?php if(!empty($content)): ?>
+								<div class="prod-container">
+									<div class="prod_title-container"><h2><strong>OVERVIEW</strong></h2></div>
+									<div class="prod_content-container">
+										<?php the_content() ?>
+									</div>
+								</div>
+							<?php endif; ?>
 
 							<?php if(!empty($castncrew)): ?>
 								<div class="prod-container">
