@@ -76,3 +76,12 @@ function event_startDate($production){
 
 	return $eventDate[0];
 }
+
+function tickets_button_filter($tickets_button, $this){
+	if ( $tickets_button =="Tickets"  ) {
+			$tickets_button = __( 'Buy Tickets', 'theatre' );
+	}
+	return ($tickets_button);
+}
+
+add_filter( 'wpt/event/tickets/button', 'tickets_button_filter',10,2);
