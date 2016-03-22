@@ -320,6 +320,10 @@ h3.ult-timeline-title.ult-responsive {
 
 /*JS COMPOSER  BUTTON */
 
+.vc_btn3{
+    text-transform: uppercase !important;
+}
+
 .vc_btn3-container.vc_btn3-center .vc_btn3-block.vc_btn3-size-lg{
 	font-size: 18px;
 	font-family: 'montserratregular';
@@ -403,7 +407,7 @@ table.ui-datepicker-calendar {
 div#ui-datepicker-div {
     margin-top: -25px;
     background: white;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 a.ui-datepicker-prev.ui-corner-all {
@@ -466,6 +470,11 @@ select.ui-datepicker-month {
     padding-bottom: 30px;
 }
 
+.upcoming_productions_row .p_content_meta {
+   /* margin-bottom: 50px;*/
+    min-height: 150px;
+}
+
 .productions_row .production_wrapper .p_image{
 	overflow: hidden;
 	height: 166px;
@@ -485,7 +494,7 @@ select.ui-datepicker-month {
 	text-align: center;
 	line-height: 19px;
 	color: #393939;
-	margin-bottom: 20px;
+	margin-bottom: 10px !important;
 }
 
 .productions_row .production_wrapper .p_excerpt{
@@ -507,7 +516,7 @@ select.ui-datepicker-month {
 }
 
 .p_info_meta {
-    margin-top: -25px;
+    /*margin-top: -25px;*/
 }
 
 .productions_row .production_wrapper .p_mi a,.productions_row .production_wrapper .p_mi{
@@ -548,9 +557,9 @@ select.ui-datepicker-month {
 	border-radius: 100%;
 	margin: 0 10px;
 
--webkit-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
--moz-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.49);
+-webkit-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.79);
+-moz-box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.79);
+box-shadow: inset -8px -145px 122px -20px rgba(0,0,0,0.79);
 }
 
 .past_production .vc_column-inner{
@@ -691,6 +700,9 @@ body.single-wp_theatre_prod #builder-module-56dfb7773d1de{
 	max-width: 100%;
 }
 
+body.single-wp_theatre_prod .atss-left{
+    display: none;
+}
 
 body.single-wp_theatre_prod .loop-content {
     padding: 0;
@@ -725,7 +737,7 @@ section.search_section.dark{
 }
 
 section.prod_banner{
-	min-height: 350px;
+	min-height: 450px;
 	width: 100%;
 	background-color: #383838;
 	text-align: center;
@@ -897,9 +909,10 @@ table.events_table .e_remark{
     color: #5aa1e3;
     border: 1px #5aa1e3 solid;
     padding: 6px 10px;
-    margin: 14px 0;
+    margin: 14px auto;
     border-radius: 5px;
     display: block;
+     max-width: 100px;
 }
 
 .wp_theatre_event_prices {
@@ -1080,6 +1093,7 @@ IPAD: 991px;
 
 	.prod_left-wrap{
 	    float: right;
+        max-width: 312px;
 	}
 
 	.prod_poster {
@@ -1087,6 +1101,7 @@ IPAD: 991px;
 	    position: relative;
 	    z-index: 10;
 	    min-height: 200px;
+        text-align: center;
 	}
 
 
@@ -1155,6 +1170,10 @@ IPAD: 991px;
 	.prod_left-container.wpb_column{
 		padding-right: 0;
 	}
+    .productions_row .production_wrapper .p_image {
+        overflow:visible;
+        height: auto;
+    }
 
 	.ticket_button-wrapper .p_ticketbutton {
 	    margin: 0 auto;
